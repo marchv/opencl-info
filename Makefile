@@ -2,7 +2,7 @@
 
 # if 'CL/cl.hpp' is used then add -DCL_USE_DEPRECATED_OPENCL_1_1_APIS until further
 opencl-info: opencl-info.cpp
-	g++ -Wall -std=c++11 -O3 opencl-info.cpp -oopencl-info -lOpenCL
+	g++ -Wall -std=c++11 -O3 -DCL_USE_DEPRECATED_OPENCL_1_1_APIS opencl-info.cpp -oopencl-info -lOpenCL
 
 clean:
 	rm opencl-info

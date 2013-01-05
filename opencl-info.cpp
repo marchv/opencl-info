@@ -1,7 +1,8 @@
 // copyright 2013 Jens Schwarzer (schwarzer@schwarzer.dk)
 // OpenCL info dump
 
-#define __CL_ENABLE_EXCEPTIONS
+#define CL_USE_DEPRECATED_OPENCL_1_1_APIS // define CL_USE_DEPRECATED_OPENCL_1_1_APIS until further
+#define __CL_ENABLE_EXCEPTIONS            // enable exceptions
 
 #if defined(__APPLE__) || defined(__MACOSX)
 #  include <OpenCL/cl.hpp>
@@ -28,7 +29,7 @@ using std::cout;
 int main() {
     try {
         std::vector<cl::Platform> platforms;
-        cl::Platform::get(&platforms);
+        (void)cl::Platform::get(&platforms);
         cout << "Number of platforms: " << platforms.size() << "\n";
 
         // dump platform information
@@ -40,7 +41,7 @@ int main() {
             P(platform, CL_PLATFORM_EXTENSIONS);
 
             std::vector<cl::Device> devices;
-            platform.getDevices(CL_DEVICE_TYPE_ALL, &devices);
+            (void)platform.getDevices(CL_DEVICE_TYPE_ALL, &devices);
             cout << "Number of devices: " << devices.size() << "\n";
 
             // dump device information

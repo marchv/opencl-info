@@ -5,9 +5,9 @@
 #define __CL_ENABLE_EXCEPTIONS            // enable exceptions
 
 #if defined(__APPLE__) || defined(__MACOSX)
-#  include <OpenCL/cl.hpp>
+#  include <OpenCL/cl2.hpp>
 #else
-#  include <CL/cl.hpp>
+#  include <CL/cl2.hpp>
 #endif
 
 #include <iostream>
@@ -130,7 +130,7 @@ int main() {
                 PconstEnd;
                 P(device, CL_DEVICE_LOCAL_MEM_SIZE);
                 Pbool(device, CL_DEVICE_ERROR_CORRECTION_SUPPORT);
-                Pbool(device, CL_DEVICE_HOST_UNIFIED_MEMORY);
+                // Pbool(device, CL_DEVICE_HOST_UNIFIED_MEMORY); /* Deprecated in 2.0 */
                 P(device, CL_DEVICE_PROFILING_TIMER_RESOLUTION);
                 Pbool(device, CL_DEVICE_ENDIAN_LITTLE);
                 Pbool(device, CL_DEVICE_AVAILABLE);
